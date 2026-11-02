@@ -15,8 +15,8 @@ export default function Shop() {
     <div>
       <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Shop</h1>
-          <p className="text-sm text-gray-500">
+          <h1 className="text-3xl font-bold text-stone-900">Shop</h1>
+          <p className="text-sm text-stone-500">
             {filteredProducts.length} product{filteredProducts.length !== 1 && "s"}
             {search && ` matching "${search}"`}
           </p>
@@ -24,7 +24,7 @@ export default function Shop() {
         <select
           value={sort}
           onChange={(e) => setSort(e.target.value)}
-          className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm outline-none focus:border-indigo-500"
+          className="rounded-lg border border-stone-300 bg-surface px-3 py-2 text-sm outline-none focus:border-brand-500"
         >
           <option value="default">Sort: Featured</option>
           <option value="price-asc">Price: Low to High</option>
@@ -44,7 +44,7 @@ export default function Shop() {
 
       {filteredProducts.length === 0 && (
         <div className="mt-4 text-center">
-          <button onClick={reset} className="text-sm font-medium text-indigo-600 hover:underline">
+          <button onClick={reset} className="text-sm font-medium text-brand-700 hover:underline">
             Clear filters
           </button>
         </div>

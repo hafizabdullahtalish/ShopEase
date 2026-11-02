@@ -2,14 +2,22 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext.jsx";
 import OrderSummary from "../components/OrderSummary.jsx";
+import { useAuth } from "../context/AuthContext.jsx";
 
 const field =
-  "w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm outline-none focus:border-indigo-500";
+  "w-full rounded-lg border border-stone-300 bg-surface px-3 py-2 text-sm outline-none focus:border-brand-500";
 
 export default function Checkout() {
   const { items, clearCart } = useCart();
+  const { user } = useAuth();
   const [placed, setPlaced] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", address: "", city: "", zip: "" });
+  const [form, setForm] = useState({
+    name: user?.name || "",
+    email: user?.email || "",
+    address: "",
+    city: "",
+    zip: "",
+  });
 
   const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -26,8 +34,8 @@ export default function Checkout() {
           ✓
         </div>
         <h1 className="text-2xl font-bold">Thank you, {form.name || "friend"}!</h1>
-        <p className="mt-2 text-gray-500">Your order has been placed. This is a demo, so nothing was charged.</p>
-        <Link to="/shop" className="mt-6 inline-block rounded-lg bg-indigo-600 px-6 py-3 font-semibold text-white hover:bg-indigo-700">
+        <p className="mt-2 text-stone-500">Your order has been placed. This is a demo, so nothing was charged.</p>
+        <Link to="/shop" className="mt-6 inline-block rounded-lg bg-brand-700 px-6 py-3 font-semibold text-white hover:bg-brand-800">
           Continue shopping
         </Link>
       </div>
@@ -38,7 +46,7 @@ export default function Checkout() {
     return (
       <div className="py-20 text-center">
         <h1 className="text-2xl font-bold">Nothing to check out</h1>
-        <Link to="/shop" className="mt-4 inline-block text-indigo-600 hover:underline">
+        <Link to="/shop" className="mt-4 inline-block text-brand-700 hover:underline">
           Go to shop
         </Link>
       </div>
@@ -49,7 +57,7 @@ export default function Checkout() {
     <div>
       <h1 className="mb-6 text-3xl font-bold">Checkout</h1>
       <div className="grid gap-8 lg:grid-cols-3">
-        <form onSubmit={onSubmit} className="space-y-4 rounded-xl border border-gray-200 bg-white p-6 lg:col-span-2">
+        <form onSubmit={onSubmit} className="space-y-4 rounded-xl border border-stone-200 bg-surface p-6 lg:col-span-2">
           <h2 className="text-lg font-semibold">Shipping details</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             <input required name="name" value={form.name} onChange={onChange} placeholder="Full name" className={field} />
@@ -60,7 +68,7 @@ export default function Checkout() {
             <input required name="city" value={form.city} onChange={onChange} placeholder="City" className={field} />
             <input required name="zip" value={form.zip} onChange={onChange} placeholder="ZIP / Postal code" className={field} />
           </div>
-          <button type="submit" className="w-full rounded-lg bg-indigo-600 py-3 font-semibold text-white hover:bg-indigo-700">
+          <button type="submit" className="w-full rounded-lg bg-brand-700 py-3 font-semibold text-white hover:bg-brand-800">
             Place order
           </button>
         </form>

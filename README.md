@@ -1,4 +1,6 @@
-# ShopEase – React E-commerce Frontend
+# BuyNest – React E-commerce Frontend
+
+The website name is set in one place: `src/config.js`.
 
 React 18 + Vite + Tailwind CSS 4 + React Router v6 + Context API (JavaScript).
 

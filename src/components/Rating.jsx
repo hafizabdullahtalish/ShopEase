@@ -4,9 +4,9 @@ export default function Rating({ value, reviews }) {
     <div className="flex items-center gap-1 text-sm">
       <span className="text-amber-400" aria-hidden="true">
         {"★".repeat(full)}
-        <span className="text-gray-300">{"★".repeat(5 - full)}</span>
+        <span className="text-stone-300">{"★".repeat(5 - full)}</span>
       </span>
-      <span className="text-gray-500">
+      <span className="text-stone-500">
         {value.toFixed(1)}
         {reviews ? ` (${reviews})` : ""}
       </span>

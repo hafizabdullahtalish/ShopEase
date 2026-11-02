@@ -10,8 +10,8 @@ export default function Cart() {
     return (
       <div className="py-20 text-center">
         <h1 className="text-2xl font-bold">Your cart is empty</h1>
-        <p className="mt-2 text-gray-500">Looks like you haven't added anything yet.</p>
-        <Link to="/shop" className="mt-6 inline-block rounded-lg bg-indigo-600 px-6 py-3 font-semibold text-white hover:bg-indigo-700">
+        <p className="mt-2 text-stone-500">Looks like you haven't added anything yet.</p>
+        <Link to="/shop" className="mt-6 inline-block rounded-lg bg-brand-700 px-6 py-3 font-semibold text-white hover:bg-brand-800">
           Start shopping
         </Link>
       </div>
@@ -37,7 +37,7 @@ export default function Cart() {
           <OrderSummary>
             <Link
               to="/checkout"
-              className="mt-5 block rounded-lg bg-indigo-600 py-3 text-center font-semibold text-white hover:bg-indigo-700"
+              className="mt-5 block rounded-lg bg-brand-700 py-3 text-center font-semibold text-white hover:bg-brand-800"
             >
               Proceed to checkout
             </Link>

@@ -14,28 +14,28 @@ export default function OrderSummary({ children }) {
   const { shipping, tax, total } = calcTotals(subtotal);
 
   return (
-    <div className="rounded-xl border border-gray-200 bg-white p-5">
+    <div className="rounded-xl border border-stone-200 bg-surface p-5">
       <h2 className="text-lg font-semibold">Order summary</h2>
       <dl className="mt-4 space-y-2 text-sm">
         <div className="flex justify-between">
-          <dt className="text-gray-500">Items ({totalItems})</dt>
+          <dt className="text-stone-500">Items ({totalItems})</dt>
           <dd>${subtotal.toFixed(2)}</dd>
         </div>
         <div className="flex justify-between">
-          <dt className="text-gray-500">Shipping</dt>
+          <dt className="text-stone-500">Shipping</dt>
           <dd>{shipping === 0 ? "Free" : `$${shipping.toFixed(2)}`}</dd>
         </div>
         <div className="flex justify-between">
-          <dt className="text-gray-500">Tax (8%)</dt>
+          <dt className="text-stone-500">Tax (8%)</dt>
           <dd>${tax.toFixed(2)}</dd>
         </div>
-        <div className="flex justify-between border-t border-gray-100 pt-3 text-base font-bold">
+        <div className="flex justify-between border-t border-stone-100 pt-3 text-base font-bold">
           <dt>Total</dt>
           <dd>${total.toFixed(2)}</dd>
         </div>
       </dl>
       {subtotal > 0 && subtotal < FREE_SHIPPING_THRESHOLD && (
-        <p className="mt-3 text-xs text-indigo-600">
+        <p className="mt-3 text-xs text-brand-700">
           Add ${(FREE_SHIPPING_THRESHOLD - subtotal).toFixed(2)} more for free shipping!
         </p>
       )}

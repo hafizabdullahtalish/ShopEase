@@ -51,6 +51,10 @@ export function ProductProvider({ children }) {
 
   const deleteProduct = (id) => persist(customProducts.filter((p) => p.id !== id));
 
+  // NEW (used by admin panel): edit a custom product
+  const updateProduct = (id, changes) =>
+    persist(customProducts.map((p) => (p.id === id ? { ...p, ...changes } : p)));
+
   const filteredProducts = useMemo(() => {
     let list = products.filter((p) => {
       const matchesCategory = category === "All" || p.category === category;
@@ -84,6 +88,7 @@ export function ProductProvider({ children }) {
     getRelatedProducts,
     addProduct,
     deleteProduct,
+    updateProduct,
     search,
     setSearch,
     category,

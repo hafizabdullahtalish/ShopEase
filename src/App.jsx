@@ -12,6 +12,9 @@ import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import AdminLayout from "./pages/admin/AdminLayout.jsx";
+import Dashboard from "./pages/admin/Dashboard.jsx";
+import ManageProducts from "./pages/admin/ManageProducts.jsx";
 
 export default function App() {
   return (
@@ -38,10 +41,14 @@ export default function App() {
             path="/admin"
             element={
               <ProtectedRoute>
-                <AddProduct />
+                <AdminLayout />
               </ProtectedRoute>
             }
-          />
+          >
+            <Route index element={<Dashboard />} />
+            <Route path="products" element={<ManageProducts />} />
+            <Route path="add" element={<AddProduct />} />
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
